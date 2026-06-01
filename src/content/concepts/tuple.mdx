@@ -1,0 +1,41 @@
+---
+title: 元组
+summary: 元组是有序且不可变的序列，常用于固定结构和多值返回。
+whyImportant: 坐标、记录、函数返回多个值和字典键都常用 tuple。理解不可变性和解包，能写出更稳定的数据约定。
+definition: tuple 是不可变序列，可以保存多个对象，并支持解包。
+mentalModel: 元组像一条固定格式的记录，位置本身带有含义。
+category: data-structure
+level: intro
+tracks:
+  - beginner
+  - data
+  - automation
+prerequisites:
+  - primitive-types
+related:
+  - list
+  - set
+  - match-case
+appliedIn:
+  cases:
+    - collection-membership-report
+    - modern-syntax-upgrade
+  projects:
+    - python-basics-lab
+people:
+  - guido-van-rossum
+worksRef:
+  - id: tuples-and-sequences
+    role: 官方教程展示元组、序列和解包。
+history:
+  - year: 1991
+    event: 序列模型：元组作为不可变序列参与 Python 早期对象模型。
+codeExamples:
+  - title: 解包
+    description: 固定结构的数据可以直接解包成多个名字。
+    code: |
+      point = (3, 5)
+      x, y = point
+      print(x + y)
+---
+如果数据长度固定、位置有明确意义，元组比列表更能表达意图。match-case 也常用元组模式解析命令。

@@ -1,0 +1,44 @@
+---
+title: 字符串
+summary: 字符串是不可变的 Unicode 文本序列，用来表示和处理文本。
+whyImportant: 用户输入、文件内容、日志、路径片段和 API 字段大多先表现为字符串。理解不可变、切片和常用方法，是文本清洗的基础。
+definition: 字符串是不可变的 Unicode 文本序列。
+mentalModel: 字符串像一串固定顺序的字符。每次替换或拼接都会得到新字符串，而不是原地修改。
+category: data-structure
+level: intro
+tracks:
+  - beginner
+  - web
+  - data
+  - automation
+  - ai
+prerequisites:
+  - primitive-types
+related:
+  - f-string
+  - regular-expression
+  - bytes
+appliedIn:
+  cases:
+    - text-normalizer
+    - modern-syntax-upgrade
+  projects:
+    - python-basics-lab
+    - cli-text-toolkit
+people:
+  - guido-van-rossum
+worksRef:
+  - id: text-sequence-type
+    role: 官方文档说明 str 的方法和格式化能力。
+history:
+  - year: 2008
+    event: Python 3 明确文本和字节分离：Python 3 用 str 表示 Unicode 文本，用 bytes 表示二进制数据。
+codeExamples:
+  - title: 清洗文本
+    description: 常见字符串方法可以完成基础清洗。
+    code: |
+      raw = "  Python,Data,AI  "
+      parts = raw.strip().lower().split(",")
+      print(parts)
+---
+字符串是数据清洗、日志分析、接口参数和用户输入的核心材料。它和正则、f-string、bytes 都有强连接。

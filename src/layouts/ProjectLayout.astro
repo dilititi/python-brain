@@ -1,0 +1,108 @@
+---
+import { render } from "astro:content";
+import Breadcrumb from "../components/astro/Breadcrumb.astro";
+import RelationCard from "../components/astro/RelationCard.astro";
+import type { CaseEntry, ConceptEntry, PersonEntry, ProjectEntry } from "../lib/relations";
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  entry: ProjectEntry;
+  concepts: ConceptEntry[];
+  cases: CaseEntry[];
+  people: PersonEntry[];
+}
+
+const { entry, concepts, cases, people } = Astro.props as Props;
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.description}>
+  <Breadcrumb
+    items={[
+      { label: "首页", href: "/" },
+      { label: "项目", href: "/projects/" },
+      { label: entry.data.title }
+    ]}
+  />
+  <header class="detail-header">
+    <p class="eyebrow">{entry.data.type} · {entry.data.stage}</p>
+    <h1>{entry.data.title}</h1>
+    <p class="lead">{entry.data.finalOutput}</p>
+  </header>
+  <section class="section content-flow">
+    <Content />
+    <div class="project-brief">
+      <section>
+        <h2>你会学到</h2>
+        <ul>
+          {entry.data.youWillLearn.map((item) => <li>{item}</li>)}
+        </ul>
+      </section>
+      <section>
+        <h2>结构</h2>
+        <p>{entry.data.structure}</p>
+      </section>
+      <section>
+        <h2>核心流程</h2>
+        <ol>
+          {entry.data.coreFlow.map((item) => <li>{item}</li>)}
+        </ol>
+      </section>
+      <section>
+        <h2>升级方向</h2>
+        <ul>
+          {entry.data.upgradePath.map((item) => <li>{item}</li>)}
+        </ul>
+      </section>
+    </div>
+  </section>
+  <section class="section">
+    <div class="grid cols-3">
+      {concepts.map((item) => (
+        <RelationCard href={`/concepts/${item.id}/`} title={item.data.title} description={item.data.summary} meta="concept" />
+      ))}
+      {cases.map((item) => (
+        <RelationCard href={`/cases/${item.id}/`} title={item.data.title} description={item.data.description} meta="case" />
+      ))}
+      {people.map((item) => (
+        <RelationCard href={`/people/${item.id}/`} title={item.data.name} description={item.data.description} meta="person" />
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .detail-header {
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(34px, 5vw, 56px);
+    line-height: 1.08;
+    letter-spacing: 0;
+  }
+
+  .project-brief {
+    display: grid;
+    gap: 18px;
+  }
+
+  .project-brief section {
+    display: grid;
+    gap: 8px;
+  }
+
+  .project-brief h2 {
+    margin: 0;
+    font-size: 18px;
+  }
+
+  .project-brief ul,
+  .project-brief ol {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+  }
+</style>

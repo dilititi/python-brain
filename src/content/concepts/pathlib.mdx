@@ -1,0 +1,42 @@
+---
+title: pathlib
+summary: pathlib 用 Path 对象处理路径、文件名、目录和后缀。
+whyImportant: 批量改名、读取配置、遍历素材目录都绕不开路径。Path 比字符串拼接更跨平台、更可读，也更适合写自动化脚本。
+definition: pathlib 是标准库里的路径处理模块，核心类型是 Path。
+mentalModel: Path 对象让路径从字符串变成有方法的对象，读写、拼接、改名都更明确。
+category: stdlib
+level: core
+tracks:
+  - automation
+  - data
+prerequisites:
+  - variable
+  - for-loop
+related:
+  - json
+  - module
+appliedIn:
+  cases:
+    - batch-rename-files
+  projects:
+    - file-organizer
+people:
+  - guido-van-rossum
+worksRef:
+  - id: pathlib-documentation
+    role: 标准库文档展示路径查询、遍历和读写方法。
+history:
+  - year: 2014
+    pep: PEP 428
+    event: Python 3.4 引入 pathlib：PEP 428 推动面向对象的文件系统路径进入标准库。
+codeExamples:
+  - title: 遍历文件
+    description: Path.glob 可以按模式找到文件。
+    code: |
+      from pathlib import Path
+
+      folder = Path(".")
+      for file in folder.glob("*.py"):
+          print(file.name)
+---
+自动化办公和数据处理里，路径处理往往比算法更先劝退新人。`pathlib` 把这件事变得更像普通 Python 对象操作。

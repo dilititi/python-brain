@@ -1,0 +1,76 @@
+title: AI 工程路径
+description: 先建立函数、JSON、环境管理和装饰器基础，再承接模型 API 与服务化。
+track: ai
+audience: 想调用模型 API、写推理服务或做 AI 工具的学习者。
+estimatedNodes: 26
+nodes:
+  - python-language
+  - interpreter-runtime
+  - dynamic-strong-typing
+  - python-versions
+  - variable
+  - primitive-types
+  - string
+  - type-casting
+  - dict
+  - list
+  - if-statement
+  - function
+  - function-parameters
+  - type-annotations
+  - module
+  - import-syntax
+  - package-structure
+  - module-search-path
+  - venv
+  - pip
+  - json
+  - try-except
+  - raise-assert-finally
+  - comprehension
+  - decorator
+  - pathlib
+milestones:
+  - title: API 数据结构
+    nodes:
+      - primitive-types
+      - string
+      - type-casting
+      - dict
+      - list
+      - if-statement
+      - json
+      - try-except
+      - raise-assert-finally
+    cases:
+      - weather-api
+      - json-config-loader
+      - api-error-handling
+    projects:
+      - mini-web-api
+      - weather-notifier
+  - title: 工程环境
+    nodes:
+      - module
+      - import-syntax
+      - package-structure
+      - module-search-path
+      - venv
+      - pip
+    cases:
+      - package-install-workflow
+      - stdlib-import-tour
+    projects:
+      - mini-web-api
+  - title: 服务化准备
+    nodes:
+      - function
+      - decorator
+    cases:
+      - flask-routing
+      - function-call-playground
+    projects:
+      - mini-web-api
+explorationDay:
+  cadence: 每周一次
+  prompt: 从 FastAPI 人物线进入现代 API 工程，再回看装饰器节点。

@@ -1,0 +1,45 @@
+---
+title: json
+summary: json 模块在 Python 对象和 JSON 文本之间做转换。
+whyImportant: Web API、配置文件、前后端通信和日志归档都常用 JSON。掌握 json 能让 dict/list 数据可靠地落盘、传输和重新加载。
+definition: json 是标准库模块，用于解析和生成 JSON 格式数据。
+mentalModel: JSON 像跨语言通用的数据包，Python 里通常落成 dict 和 list。
+category: stdlib
+level: core
+tracks:
+  - web
+  - data
+  - automation
+  - ai
+prerequisites:
+  - dict
+  - list
+related:
+  - pathlib
+  - try-except
+appliedIn:
+  cases:
+    - weather-api
+    - csv-cleaning
+  projects:
+    - mini-web-api
+people:
+  - guido-van-rossum
+worksRef:
+  - id: json-documentation
+    role: 标准库文档说明 dumps、loads、dump 和 load 的区别。
+history:
+  - year: 2006
+    event: json 进入标准库：Python 2.6 加入 json 模块，简化 Web 数据交换。
+codeExamples:
+  - title: loads 和 dumps
+    description: 字符串转对象用 loads，对象转字符串用 dumps。
+    code: |
+      import json
+
+      raw = '{"city": "Hangzhou", "temp": 26}'
+      data = json.loads(raw)
+      print(data["city"])
+      print(json.dumps(data, ensure_ascii=False))
+---
+只要进入 Web API、数据采集或 AI 工程，JSON 就会反复出现。它是 Python 对外交换结构化数据的日常格式。

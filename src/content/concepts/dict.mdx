@@ -1,0 +1,50 @@
+---
+title: 字典
+summary: 字典是键值映射，用键快速找到对应的值。
+whyImportant: 计数、分组、配置、JSON 数据和索引表几乎都落到 dict。学会它，新人才能从“顺序列表”进入“按名字组织数据”的思维。
+definition: 字典是由键值对组成的映射类型。
+mentalModel: 字典像一张可快速查找的表，左边是唯一的键，右边是对应的值。
+category: data-structure
+level: intro
+tracks:
+  - beginner
+  - web
+  - data
+  - automation
+  - ai
+prerequisites:
+  - variable
+related:
+  - list
+  - json
+  - if-statement
+appliedIn:
+  cases:
+    - word-frequency
+    - csv-cleaning
+    - weather-api
+  projects:
+    - text-analyzer
+    - mini-web-api
+people:
+  - guido-van-rossum
+  - raymond-hettinger
+worksRef:
+  - id: modern-python-dictionaries
+    role: 从实现演进讲清楚字典为什么是 Python 的核心结构。
+history:
+  - year: 2017
+    event: 插入顺序成为语言保证：Python 3.7 开始，字典保持插入顺序成为语言规范的一部分。
+codeExamples:
+  - title: 计数
+    description: 字典最典型的入门用法是词频统计。
+    code: |
+      counts = {}
+      for word in ["python", "data", "python"]:
+          counts[word] = counts.get(word, 0) + 1
+
+      print(counts)
+extends:
+  - comprehension
+---
+字典让程序从“按顺序扫一遍”升级到“按名字快速定位”。Web 请求体、配置文件、统计结果和 JSON 数据都绕不开它。

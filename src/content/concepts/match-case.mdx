@@ -1,0 +1,47 @@
+---
+title: match-case
+summary: match-case 用模式匹配根据数据形状和取值选择分支。
+whyImportant: 解析命令、处理嵌套字典、区分事件类型时，普通 if 链会很散。match-case 能把“数据长什么样”直接写进分支条件。
+definition: match-case 是 Python 的结构化模式匹配语法，根据对象形状和取值选择分支。
+mentalModel: match-case 像把数据拿去对一组模板，匹配到哪个模板就执行哪个分支。
+category: control-flow
+level: advanced
+tracks:
+  - web
+  - data
+  - automation
+  - ai
+prerequisites:
+  - if-statement
+  - dict
+  - tuple
+related:
+  - python-versions
+appliedIn:
+  cases:
+    - modern-syntax-upgrade
+  projects:
+    - python-basics-lab
+people:
+  - guido-van-rossum
+worksRef:
+  - id: pep-634
+    role: Structural Pattern Matching 的规范。
+history:
+  - year: 2021
+    event: Python 3.10 引入 match-case：结构化模式匹配进入 Python 语法。
+codeExamples:
+  - title: 命令分发
+    description: match-case 可以让命令解析比长串 if 更清晰。
+    code: |
+      command = ("open", "README.md")
+
+      match command:
+          case ("open", filename):
+              print(f"open {filename}")
+          case ("quit",):
+              print("bye")
+          case _:
+              print("unknown command")
+---
+match-case 不是 switch 的简单替代。它更强的地方在于“匹配结构”，比如元组、字典、类实例和嵌套数据。

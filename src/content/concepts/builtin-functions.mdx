@@ -1,0 +1,49 @@
+---
+title: 内置函数
+summary: 内置函数是不需要 import 就能直接调用的常用基础工具。
+whyImportant: >-
+  len、range、enumerate、zip、sum、sorted 等函数能替代大量手写循环，让代码更短、更
+  Pythonic，也更容易读懂别人项目里的日常写法。
+definition: 内置函数是不需要 import 就能调用的函数，由 builtins 模块提供。
+mentalModel: 内置函数像语言自带的小工具箱，覆盖统计、遍历、转换、排序和检查等常见动作。
+category: function
+level: intro
+tracks:
+  - beginner
+  - data
+  - automation
+  - ai
+prerequisites:
+  - function
+  - primitive-types
+related:
+  - range
+  - for-loop
+  - common-stdlib-modules
+appliedIn:
+  cases:
+    - text-normalizer
+    - collection-membership-report
+  projects:
+    - python-basics-lab
+    - cli-text-toolkit
+people:
+  - guido-van-rossum
+  - raymond-hettinger
+worksRef:
+  - id: built-in-functions
+    role: 官方文档列出所有内置函数。
+history:
+  - year: 1991
+    event: 内置命名空间：Python 通过内置命名空间提供最基础的函数和异常。
+codeExamples:
+  - title: enumerate 和 zip
+    description: 内置函数能减少手写索引循环。
+    code: |
+      names = ["Ada", "Guido"]
+      scores = [98, 91]
+
+      for index, (name, score) in enumerate(zip(names, scores), start=1):
+          print(index, name, score)
+---
+很多 Pythonic 写法不是来自更复杂的语法，而是来自合适的内置函数。`enumerate` 和 `zip` 是替代手动索引循环的典型例子。

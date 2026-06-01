@@ -1,0 +1,36 @@
+---
+title: Flask 路由
+description: 用 @app.route 把普通函数注册成 URL 处理器。
+scenario: Web 新手想知道为什么写一个函数，再加一行装饰器，就能变成网页接口。
+level: advanced
+tracks:
+  - web
+concepts:
+  - function
+  - closure
+  - decorator
+project: mini-web-api
+projects:
+  - mini-web-api
+libraries: []
+people:
+  - armin-ronacher
+  - sebastian-ramirez
+sourceUrl: 'https://github.com/pallets/flask/blob/954f5684e4841aad84a8eec7ace7b81a0d3f6831/src/flask/sansio/scaffold.py#L335-L365'
+codeVersions:
+  - label: standard
+    code: |
+      from flask import Flask
+
+      app = Flask(__name__)
+
+      @app.route("/login")
+      def login():
+          return "login page"
+pitfalls:
+  - 把路由函数写成大杂烩会让 URL 注册、参数校验和业务逻辑互相缠在一起。
+extensions:
+  - 加入 HTTP method、状态码和参数校验，再把业务逻辑抽成独立函数。
+---
+
+`@app.route("/login")` 的重点不是语法糖，而是注册行为。装饰器拿到 `login` 函数，把它和 URL 规则记录到应用对象里。

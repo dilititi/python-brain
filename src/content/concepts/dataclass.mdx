@@ -1,0 +1,53 @@
+---
+title: dataclass
+summary: dataclass 用装饰器自动生成数据类常见的样板方法。
+whyImportant: 配置项、事件记录、解析结果等数据结构不该被样板 __init__ 淹没。dataclass 让字段、默认值和显示形式集中呈现，适合中小型工程建模。
+definition: dataclass 是标准库装饰器，可以自动生成 __init__、__repr__、比较等样板方法。
+mentalModel: dataclass 像给 class 加了数据表单模板，字段写清楚，样板代码自动补上。
+category: oop
+level: core
+tracks:
+  - beginner
+  - data
+  - automation
+  - ai
+prerequisites:
+  - class
+  - decorator
+related:
+  - encapsulation
+  - dunder-methods
+  - dict
+  - list
+appliedIn:
+  cases:
+    - contact-records
+  projects:
+    - contact-book-cli
+people:
+  - raymond-hettinger
+  - guido-van-rossum
+worksRef:
+  - id: pep-557
+    role: Data Classes 的设计提案。
+  - id: dataclasses-documentation
+    role: 标准库文档展示字段、默认值、冻结对象和转换函数。
+history:
+  - year: 2018
+    pep: PEP 557
+    event: Python 3.7 引入 dataclasses：PEP 557 让数据类进入标准库，减少样板代码。
+codeExamples:
+  - title: 数据记录
+    description: dataclass 适合表达结构明确的数据对象。
+    code: |
+      from dataclasses import dataclass
+
+      @dataclass
+      class Contact:
+          name: str
+          email: str
+
+      contact = Contact("Ada", "ada@example.com")
+      print(contact)
+---
+dataclass 把装饰器和 OOP 连在一起。它让新人看到：装饰器不只服务 Web 路由，也可以直接改善普通数据对象的写法。

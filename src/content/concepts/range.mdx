@@ -1,0 +1,41 @@
+---
+title: range
+summary: range 表示按规则生成的整数序列，常用于循环计数。
+whyImportant: 新手常把 range 当列表，但它实际按需产生数字。理解这一点能写出更省内存的循环，也能读懂索引遍历和批量生成场景。
+definition: range 是不可变的整数序列类型，按需生成数字而不是一次性保存所有数字。
+mentalModel: range 像一个数字规则，不是一袋已经装好的数字。
+category: data-structure
+level: intro
+tracks:
+  - beginner
+  - data
+  - automation
+prerequisites:
+  - primitive-types
+  - for-loop
+related:
+  - list
+  - builtin-functions
+appliedIn:
+  cases:
+    - collection-membership-report
+    - binary-file-preview
+  projects:
+    - python-basics-lab
+    - cli-text-toolkit
+people:
+  - guido-van-rossum
+worksRef:
+  - id: ranges
+    role: 官方文档说明 range 的惰性序列行为。
+history:
+  - year: 2008
+    event: Python 3 中 range 变为惰性序列：Python 3 的 range 替代了 Python 2 中常见的 xrange 使用方式。
+codeExamples:
+  - title: 步长
+    description: 'range(start, stop, step) 可以表达整数规律。'
+    code: |
+      for number in range(2, 10, 2):
+          print(number)
+---
+`range(10)` 不是“列表 0 到 9”，而是一个可迭代的范围对象。这个区别在大范围数据时很重要。

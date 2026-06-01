@@ -1,0 +1,58 @@
+---
+title: class
+summary: class 用来定义自定义类型，把对象的数据和行为组织在一起。
+whyImportant: 当脚本开始出现重复的字典结构和配套函数时，类能把状态、方法和约束收进同一个模型，是后端模型、工具对象和游戏实体的基础。
+definition: class 定义一个类，类可以创建对象，并把属性和方法放在同一个命名空间里。
+mentalModel: class 像一张对象蓝图，实例是按蓝图造出来的具体对象。
+category: oop
+level: core
+tracks:
+  - web
+  - data
+  - automation
+  - ai
+prerequisites:
+  - function
+  - dict
+related:
+  - encapsulation
+  - inheritance
+  - polymorphism
+  - dunder-methods
+  - dataclass
+appliedIn:
+  cases:
+    - contact-records
+  projects:
+    - contact-book-cli
+people:
+  - guido-van-rossum
+  - raymond-hettinger
+worksRef:
+  - id: the-python-tutorial-classes
+    role: 官方教程讲解类、实例、方法对象和作用域。
+history:
+  - year: 1991
+    event: 面向对象支持：Python 从早期就支持类和对象，并把函数式、过程式和面向对象风格放在一起。
+codeExamples:
+  - title: 方法
+    description: 方法的第一个参数 self 指向当前对象。
+    code: |
+      class Counter:
+          def __init__(self):
+              self.value = 0
+
+          def add(self):
+              self.value += 1
+
+      counter = Counter()
+      counter.add()
+      print(counter.value)
+extends:
+  - encapsulation
+  - inheritance
+  - polymorphism
+  - dunder-methods
+  - dataclass
+---
+类不是每个脚本都必须用。它适合在“同一组数据和行为总是一起出现”时，把散落的函数和字典收束成一个类型。
